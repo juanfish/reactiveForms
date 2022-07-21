@@ -1,0 +1,19 @@
+<form  [formGroup]="form" (ngSubmit)="onSubmit()" >    
+    <div formArrayName="lessons">
+        <h2>Emails</h2>
+        <div *ngFor="let lessonFo of lessons.controls   ; let i = index">                  
+            <div [formGroup]="getDlessons(lessonFo)">
+                <label for="title-{{i}}">Title</label>
+                <input type="text" id="title-{{i}}" formControlName="title">     
+                <label for="level-{{i}}">Level</label>
+                <input type="text" id="level-{{i}}"formControlName="level">     
+            </div>
+            
+        </div>
+    </div>
+    <br>
+    <button (click)="addLesson()">Añadir +</button>
+    <br><br>
+    <button type="submit">Aceptar</button>
+</form>
+
